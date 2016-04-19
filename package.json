@@ -1,0 +1,45 @@
+{
+  "name": "hapi-routes-loader",
+  "version": "0.0.0",
+  "description": "Routes loader for each one hapi server connection.",
+  "keywords": [
+    "hapijs",
+    "routes",
+    "routing",
+    "route",
+    "plugin"
+  ],
+  "scripts": {
+    "test": "lab -t 100 -v -L"
+  },
+  "engine": {
+    "node": ">=0.10.*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davidenq/hapi-routes-loader"
+  },
+  "bugs": {
+    "url": "https://github.com/davidenq/hapi-routes-loader/issues"
+  },
+  "author": {
+    "name": "David Núñez",
+    "email": "davip@live.com",
+    "url": "https://github.com/davidenq"
+  },
+  "license": "MIT",
+  "maintainers": {
+    "name": "David Núñez",
+    "email": "davip@live.com"
+  },
+  "main": "lib/index.js",
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "fullpath": "^1.0.2",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "code": "^2.2.0",
+    "lab": "^10.3.1"
+  }
+}
