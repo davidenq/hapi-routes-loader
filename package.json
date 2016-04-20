@@ -1,6 +1,6 @@
 {
   "name": "hapi-routes-loader",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Routes loader for each one hapi server connection.",
   "keywords": [
     "hapijs",
@@ -10,7 +10,7 @@
     "plugin"
   ],
   "scripts": {
-    "test": "lab -t 100 -v -L"
+    "test": "lab -t 98 -v -L"
   },
   "engine": {
     "node": ">=0.10.*"
