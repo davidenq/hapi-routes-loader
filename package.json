@@ -1,6 +1,6 @@
 {
   "name": "hapi-routes-loader",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Routes loader for each one hapi server connection.",
   "keywords": [
     "hapijs",
@@ -36,10 +36,13 @@
   "readmeFilename": "README.md",
   "dependencies": {
     "fullpath": "^1.0.2",
-    "underscore": "^1.8.3"
+    "hoek": "^3.0.4"
   },
   "devDependencies": {
     "code": "^2.2.0",
-    "lab": "^10.3.1"
+    "hapi": "^13.3.0",
+    "inert": "^3.2.0",
+    "lab": "^10.3.1",
+    "underscore": "^1.8.3"
   }
 }
