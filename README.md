@@ -9,7 +9,9 @@
 ##hapi-routes-loader
 
 A custom route loader for hapijs:
+
     a. for each connection with labels or,
+    
     b. for a single connection.
 
 This module moves the routing logic into separate files or a single file in the folder that you specify. This allowing you to separate routes in groups by functionality.  This module allows that your routes are automatically determined for you based on file-structure.
@@ -115,10 +117,12 @@ node index.js
 ```
 
 Open your browser and visit http://localhost:8000 and test your aplication with every route for example:
-http://localhost:8000/account/login
-http://localhost:8000/admin/index
-http://localhost:8000/user/index
 
+http://localhost:8000/account/login
+
+http://localhost:8000/admin/index
+
+http://localhost:8000/user/index
 
 
 **_Example for each connection with labels:_** 
@@ -173,12 +177,17 @@ server.register([
 node index.js
 ```
 For web server connection open your browser and visit http://localhost:8000 and test your aplication with every route for example:
+
 http://localhost:8000/account/login
+
 http://localhost:8000/user/index
+
 http://localhost:8000/user/dashboar
 
 For admin server connection open your browser and visit http://localhost:8001 and test your aplication with every route for example:
+
 http://localhost:8001/admin/index
+
 http://localhost:8001/admin/dashboard
 
 ## Support
@@ -196,7 +205,9 @@ MIT Licence
  ##hapi-routes-loader
  
  Un cargador de rutas personalizable para hapijs:
+ 
    a. para cada conexión con etiquetas o,
+   
    b. para una única conexión.
    
 Este módulo mueve la lógica de enrutamiento en archivos separados o en un único archivo en la carpeta que especifique. Esto permite separar las rutas en grupos según la funcionalidad. Este módulo permite que las rutas se determinan automáticamente, basado en la estructura de archivos.
@@ -302,9 +313,13 @@ node index.js
 ```
 
 Abra su navegador y visite http://localhost:8000 y pruebe todas las rutas de su aplicación. Por ejemplo:
+
 http://localhost:8000/account/login
+
 http://localhost:8000/admin/index
+
 http://localhost:8000/user/index
+
 
 **_Ejemplo para cada con conexión con etiquetas:_** 
 
@@ -358,13 +373,18 @@ server.register([
 node index.js
 ```
 Para la conexión del servidor con etiqueta web, abra el navegador y visite http://localhost:8000 y pruebe su aplicación para cada ruta. Por ejemplo:
+
 http://localhost:8000/account/login
+
 http://localhost:8000/user/index
+
 http://localhost:8000/user/dashboar
 
 Para la conexión del servidor con etiqueta admin, abra el navegador y visite
 http://localhost:8001 y prueba tu aplicación para cada ruta. Por ejemplo:
+
 http://localhost:8001/admin/index
+
 http://localhost:8001/admin/dashboard
 
 ## Soporte
