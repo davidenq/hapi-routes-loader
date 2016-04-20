@@ -1,6 +1,6 @@
 {
   "name": "hapi-routes-loader",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Routes loader for each one hapi server connection.",
   "keywords": [
     "hapijs",
