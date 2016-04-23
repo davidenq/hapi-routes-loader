@@ -2,7 +2,7 @@
 [![NPM](https://img.shields.io/npm/v/hapi-routes-loader.svg)](https://www.npmjs.com/package/hapi-routes-loader)
 [![Downloads](https://img.shields.io/npm/dm/hapi-routes-loader.svg)](http://npm-stat.com/charts.html?package=hapi-routes-loader)
 
-**_Coverage 98.53%_**
+**_Coverage 98.86%_**
 
 #English version
 
@@ -11,7 +11,7 @@
 A custom route loader for hapijs:
 
     a. for each connection with labels or,
-    
+
     b. for a single connection.
 
 This module moves the routing logic into separate files or a single file in the folder that you specify. This allowing you to separate routes in groups by functionality.  This module allows that your routes are automatically determined for you based on file-structure.
@@ -43,8 +43,8 @@ The following example attaches hapi-routes-loader to a simple  node.js app
 │   │   ├── controllers/
 │   │   ├── models/
 │   │   ├── helpers/
-.   .   .  . . . . 
-.   .   .  . . . . 
+.   .   .  . . . .
+.   .   .  . . . .
 .   .   .  . . . .
 │   ├── server.js
 ```
@@ -77,7 +77,7 @@ module.exports = [{
 
 ```
 
-**_Example for a single connection:_** 
+**_Example for a single connection:_**
 
 `server.js`
 ```js
@@ -125,7 +125,7 @@ http://localhost:8000/admin/index
 http://localhost:8000/user/index
 
 
-**_Example for each connection with labels:_** 
+**_Example for each connection with labels:_**
 
 `server.js`
 ```js
@@ -201,15 +201,15 @@ MIT Licence
 
 
 #Versión español
- 
+
  ##hapi-routes-loader
- 
+
  Un cargador de rutas personalizable para hapijs:
- 
+
    a. para cada conexión con etiquetas o,
-   
+
    b. para una única conexión.
-   
+
 Este módulo mueve la lógica de enrutamiento en archivos separados o en un único archivo en la carpeta que especifique. Esto permite separar las rutas en grupos según la funcionalidad. Este módulo permite que las rutas se determinan automáticamente, basado en la estructura de archivos.
 
 ### Instalación
@@ -239,8 +239,8 @@ A continuación se muestra un ejemplo sencillo de la ejecución del módulo.
 │   │   ├── controllers/
 │   │   ├── models/
 │   │   ├── helpers/
-.   .   .  . . . . 
-.   .   .  . . . . 
+.   .   .  . . . .
+.   .   .  . . . .
 .   .   .  . . . .
 │   ├── server.js
 ```
@@ -273,7 +273,7 @@ module.exports = [{
 
 ```
 
-**_Ejemplo para una única conexión:_** 
+**_Ejemplo para una única conexión:_**
 
 `server.js`
 ```js
@@ -321,7 +321,7 @@ http://localhost:8000/admin/index
 http://localhost:8000/user/index
 
 
-**_Ejemplo para cada con conexión con etiquetas:_** 
+**_Ejemplo para cada con conexión con etiquetas:_**
 
 `server.js`
 ```js
@@ -395,4 +395,3 @@ Si necesitas ayuda usando  hapi-routes-loader, o si encuentras un bug, por favor
 ## Licencia
 
 MIT Licence
-
