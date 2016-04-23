@@ -7,7 +7,6 @@ const Hapi = require('hapi');
 const Inert = require('inert');
 const Path = require('path');
 const FullPath = require('fullpath');
-const HapiRoutesLoader = require('../lib/index');
 
 const lab = exports.lab = Lab.script();
 const describe = lab.experiment;
@@ -24,9 +23,14 @@ describe('Test module: ', () => {
 
                 const server = new Hapi.Server();
                 server.connection();
+                server.initialize((err) => {
 
+                    if (err) {
+                        throw err;
+                    }
+                });
                 server.register([{
-                    register: HapiRoutesLoader,
+                    register: require('../lib/index'),
                     options: {
                     }
                 }], (err) => {
@@ -45,9 +49,14 @@ describe('Test module: ', () => {
 
                 const server = new Hapi.Server();
                 server.connection();
+                server.initialize((err) => {
 
+                    if (err) {
+                        throw err;
+                    }
+                });
                 server.register([{
-                    register: HapiRoutesLoader,
+                    register: require('../lib/index'),
                     options: {
                         dirname: __dirname
                     }
@@ -67,9 +76,14 @@ describe('Test module: ', () => {
 
                 const server = new Hapi.Server();
                 server.connection();
+                server.initialize((err) => {
 
+                    if (err) {
+                        throw err;
+                    }
+                });
                 server.register([{
-                    register: HapiRoutesLoader,
+                    register: require('../lib/index'),
                     options: {
                         dirname: null,
                         pathRoutes: '/routes'
@@ -90,9 +104,14 @@ describe('Test module: ', () => {
 
                 const server = new Hapi.Server();
                 server.connection();
+                server.initialize((err) => {
 
+                    if (err) {
+                        throw err;
+                    }
+                });
                 server.register([{
-                    register: HapiRoutesLoader,
+                    register: require('../lib/index'),
                     options: {
                         dirname: __dirname,
                         pathRoutes: null
@@ -113,9 +132,14 @@ describe('Test module: ', () => {
 
                 const server = new Hapi.Server();
                 server.connection();
+                server.initialize((err) => {
 
+                    if (err) {
+                        throw err;
+                    }
+                });
                 server.register([{
-                    register: HapiRoutesLoader,
+                    register: require('../lib/index'),
                     options: {
                         dirname: __dirname,
                         pathRoutes: '/routes',
@@ -136,7 +160,6 @@ describe('Test module: ', () => {
             expect(() => {
 
                 const server = new Hapi.Server();
-                server.connection();
 
                 server.connection({
                     port: 8000,
@@ -148,8 +171,15 @@ describe('Test module: ', () => {
                     labels: ['admin']
                 });
 
+                server.initialize((err) => {
+
+                    if (err) {
+                        throw err;
+                    }
+                });
+
                 server.register([{
-                    register: HapiRoutesLoader,
+                    register: require('../lib/index'),
                     options: {
                         dirname: __dirname,
                         pathRoutes: '/routes',
@@ -173,8 +203,6 @@ describe('Test module: ', () => {
             expect(() => {
 
                 const server = new Hapi.Server();
-                server.connection();
-
                 server.connection({
                     port: 8000,
                     labels: ['web']
@@ -184,9 +212,14 @@ describe('Test module: ', () => {
                     port: 8001,
                     labels: ['admin']
                 });
+                server.initialize((err) => {
 
+                    if (err) {
+                        throw err;
+                    }
+                });
                 server.register([{
-                    register: HapiRoutesLoader,
+                    register: require('../lib/index'),
                     options: {
                         dirname: __dirname,
                         pathRoutes: '/routes',
@@ -199,10 +232,42 @@ describe('Test module: ', () => {
 
                     throw err;
                 });
+
                 server.stop();
             }).to.throw('The array must be non-empty. You must specify in the array the same name of each one  routes files.');
 
             done();
+        });
+
+        it('throw error with message "There are not routes files."', (done) => {
+
+            expect(() => {
+
+                const server = new Hapi.Server();
+                server.connection();
+                server.initialize((err) => {
+
+                    if (err) {
+                        throw err;
+                    }
+                });
+                server.register([{
+                    register: require('../lib/index'),
+                    options: {
+                        dirname: __dirname,
+                        pathRoutes: '/empty'
+                    }
+                }], (err) => {
+
+                    if (err) {
+                        throw err;
+                    }
+                });
+                server.stop();
+            }).to.throw('There are not routes files.');
+
+            done();
+
         });
     });
 
@@ -212,9 +277,14 @@ describe('Test module: ', () => {
 
             const server = new Hapi.Server();
             server.connection();
+            server.initialize((err) => {
 
+                if (err) {
+                    throw err;
+                }
+            });
             server.register([Inert, {
-                register: HapiRoutesLoader,
+                register: require('../lib/index'),
                 options: {
                     dirname: __dirname,
                     pathRoutes: '/routes'
@@ -246,11 +316,46 @@ describe('Test module: ', () => {
                     }
 
                     const routesName = _.uniq(routes).sort();
-                    server.stop();
+
                     expect(filename).to.deep.equal(routesName);
                 }
             });
+            server.stop();
             done();
+        });
+
+        describe('When is used require to include modules', () => {
+
+            it('thow new error when is used require to include modules and this containt errors.', (done) => {
+
+                const server = new Hapi.Server();
+                server.connection();
+                server.initialize((err) => {
+
+                    if (err) {
+                        throw err;
+                    }
+                });
+                expect(() => {
+
+                    server.register([
+                        Inert, {
+                            register: require('../lib/index'),
+                            options: {
+                                dirname: __dirname,
+                                pathRoutes: '/routes'
+                            }
+                        }], (err) => {
+
+                        if (err) {
+
+                            throw err;
+                        }
+                    });
+                }).to.throw();
+                server.stop();
+                done();
+            });
         });
 
     });
@@ -259,21 +364,26 @@ describe('Test module: ', () => {
 
         it('You must specify in the array the same name of each one  routes files.', (done) => {
 
-            const serverG = new Hapi.Server();
-            serverG.connection({
+            const server = new Hapi.Server();
+            server.connection({
                 port: 8000,
                 labels: ['webServer']
             });
 
-            serverG.connection({
+            server.connection({
                 port: 8001,
                 labels: ['adminServer']
             });
+            server.initialize((err) => {
 
+                if (err) {
+                    throw err;
+                }
+            });
             expect(() => {
 
-                serverG.register([Inert, {
-                    register: HapiRoutesLoader,
+                server.register([Inert, {
+                    register: require('../lib/index'),
                     options: {
                         dirname: __dirname,
                         pathRoutes: '/routes',
@@ -287,12 +397,58 @@ describe('Test module: ', () => {
                     if (!err) {
                         throw err;
                     }
-                    serverG.stop();
-                });
 
+                });
+                server.stop();
             }).to.throw('You must specify in the array the same name of each one  routes files.');
 
             done();
+        });
+
+        describe('When is used require to include modules', () => {
+
+            it('thow new error when is used require to include modules and this containt errors.', (done) => {
+
+                const server = new Hapi.Server();
+                server.connection({
+                    port: 8000,
+                    labels: ['webServer']
+                });
+
+                server.connection({
+                    port: 8001,
+                    labels: ['adminServer']
+                });
+                server.initialize((err) => {
+
+                    if (err) {
+                        throw err;
+                    }
+                });
+                expect(() => {
+
+                    server.register([
+                        Inert, {
+                            register: require('../lib/index'),
+                            options: {
+                                dirname: __dirname,
+                                pathRoutes: '/routes',
+                                groupBy: {
+                                    webServer: ['account', 'assets', 'user'],
+                                    adminServer: ['admin']
+                                }
+                            }
+                        }], (err) => {
+
+                        if (err) {
+
+                            throw err;
+                        }
+                    });
+                }).to.throw();
+                server.stop();
+                done();
+            });
         });
     });
 });
