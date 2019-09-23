@@ -1,13 +1,9 @@
 language: node_js
 sudo: false
 node_js:
+  - 12
   - 10
-  - 9
-  - 8
-  - 7
-  - 6
-install:
-  - npm install -g codecov istanbul
-script:
-  - istanbul cover ./node_modules/@hapi/lab/bin/lab  && codecov
-  - codecov
+before_install: "npm install -g codecov istanbul"
+install: "npm ci"
+script: "npm run test"
+after_sucess: "istanbul cover ./node_modules/@hapi/lab/bin/lab  && codecov"

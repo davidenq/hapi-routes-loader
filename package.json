@@ -10,7 +10,8 @@
     "plugin"
   ],
   "scripts": {
-    "test": "lab -t 100 -v -L"
+    "test": "lab -t 100 -v -L",
+    "codecov": "istanbul cover ./node_modules/@hapi/lab/bin/lab -t 100 -v -L && codecov"
   },
   "engine": {
     "node": ">=0.10.*"
