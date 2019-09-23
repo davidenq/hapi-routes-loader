@@ -6,6 +6,7 @@
 
 # hapi-routes-loader
 
+*Coverage 100%*
 A custom route loader for hapijs.
 
 This module aims you write routes into separate files and load those without to require each file. Also, this module add a prefix with the file name in each declared path.

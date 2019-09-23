@@ -6,4 +6,6 @@ node_js:
 before_install: "npm install -g codecov istanbul"
 install: "npm ci"
 script: "npm run test"
-after_sucess: "istanbul cover ./node_modules/@hapi/lab/bin/lab  && codecov"
+after_sucess: 
+  - istanbul cover ./node_modules/@hapi/lab/bin/lab  && codecov
+  - codecov

@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "test": "lab -t 100 -v -L",
-    "codecov": "istanbul cover ./node_modules/@hapi/lab/bin/lab -t 100 -v -L && codecov"
+    "codecov": "istanbul cover ./node_modules/@hapi/lab/bin/lab && codecov"
   },
   "engine": {
     "node": ">=0.10.*"
