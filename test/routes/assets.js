@@ -1,9 +1,10 @@
 'use strict';
+
 const Path = require('path');
+
 module.exports = [{
     method: 'GET',
-    path: 'index',
-    config: {
+    options: {
         auth: false
     },
     path: '{params*}',

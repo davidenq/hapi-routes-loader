@@ -3,51 +3,51 @@
 module.exports = [{
     method: 'GET',
     path: 'login',
-    config: {
+    options: {
         auth: false
     },
-    handler: function (request, reply) {
+    handler: function (request, h) {
 
-        reply('get account/login');
+        return 'get account/login';
     }
 }, {
     method: 'POST',
     path: 'login',
-    config: {
+    options: {
         auth: false
     },
-    handler: function (request, reply) {
+    handler: function (request, h) {
 
-        reply('post account/login');
+        return 'post account/login';
     }
 }, {
     method: 'GET',
     path: 'signup',
-    config: {
+    options: {
         auth: false
     },
-    handler: function (request, reply) {
+    handler: function (request, h) {
 
-        reply('get account/signup');
+        return 'get account/signup';
     }
 }, {
     method: 'POST',
     path: 'signup',
-    config: {
+    options: {
         auth: false
     },
-    handler: function (request, reply) {
+    handler: function (request, h) {
 
-        reply('post account/signup');
+        return 'post account/signup';
     }
 }, {
     method: 'GET',
     path: 'logout',
-    config: {
+    options: {
         auth: false
     },
-    handler: function (request, reply) {
+    handler: function (request, h) {
 
-        reply('get account/logout');
+        return 'get account/logout';
     }
 }];

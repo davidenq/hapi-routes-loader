@@ -3,21 +3,21 @@
 module.exports = [{
     method: 'GET',
     path: 'index',
-    config: {
+    options: {
         auth: false
     },
-    handler: function (request, reply) {
+    handler: (request, h) => {
 
-        reply('get admin/index');
+        return 'get admin/index';
     }
 }, {
     method: 'GET',
     path: 'dashboard',
-    config: {
+    options: {
         auth: false
     },
-    handler: function (request, reply) {
+    handler: (request, h)  => {
 
-        reply('get admin/dashboard');
+        return 'get admin/dashboard';
     }
 }];

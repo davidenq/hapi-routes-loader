@@ -10,7 +10,7 @@
     "plugin"
   ],
   "scripts": {
-    "test": "lab -t 98 -v -L"
+    "test": "lab -t 100 -v -L"
   },
   "engine": {
     "node": ">=0.10.*"
@@ -28,21 +28,24 @@
     "url": "https://github.com/davidenq"
   },
   "license": "MIT",
-  "maintainers": {
-    "name": "David Núñez",
-    "email": "davip@live.com"
-  },
+  "maintainers": [
+    {
+      "name": "David Núñez",
+      "email": "davip@live.com"
+    }
+  ],
   "main": "lib/index.js",
   "readmeFilename": "README.md",
   "dependencies": {
-    "fullpath": "^1.0.2",
-    "hoek": "^3.0.4"
+    "@hapi/hoek": "^8.2.4",
+    "@hapi/joi": "^16.1.4",
+    "fullpath": "^1.2.2"
   },
   "devDependencies": {
-    "code": "^2.2.0",
-    "hapi": "^13.3.0",
-    "inert": "^3.2.0",
-    "lab": "^10.3.1",
-    "underscore": "^1.8.3"
+    "@hapi/hapi": "^18.4.0",
+    "@hapi/code": "^6.0.0",
+    "@hapi/inert": "^5.2.2",
+    "@hapi/lab": "^20.2.2",
+    "underscore": "^1.9.1"
   }
 }
