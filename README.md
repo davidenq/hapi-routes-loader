@@ -13,7 +13,7 @@ This module aims you write routes into separate files and load those without to 
 ## Compatibility
 | hapi-routes-loader version | hapi.js | node version |
 | --- | --- | --- |
-| `v0.3.0` | `>=18 @hapi/hapi` | `>=10` |
+| `v0.3.0` | `>=18 @hapi/hapi` | `>=11` |
 | `v0.2.0` | `=13 hapi` | `>=0.10` |
 
 
